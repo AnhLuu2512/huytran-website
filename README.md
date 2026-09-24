@@ -4,10 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A0A0A">
-<!-- Fix 1: Thêm SEO để gửi link qua Zalo/Mess hiện ảnh và tiêu đề -->
 <meta property="og:title" content="Huy Trần – Only The Best">
 <meta property="og:description" content="Xây dựng Tư duy, Tài chính và Bản lĩnh phái mạnh.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop">
 <title>Huy Trần – Only The Best</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,9 +26,13 @@ h2{font-size:clamp(26px,6vw,40px);margin-bottom:32px}
 .b1{background:var(--ac);color:#0A0A0A}.b1:hover{background:#e6c34d}
 .b2{background:transparent;color:var(--ac)}.b2:hover{background:rgba(212,175,55,.12)}
 
+/* Placeholder CSS */
+.ph{display:grid;place-items:center;text-align:center;background:repeating-linear-gradient(45deg,#151515 0 12px,#1a1a1a 12px 24px);border:1px dashed var(--ln);color:var(--mu);font-size:12px;letter-spacing:.06em;padding:8px}
+.ph::after{content:attr(data-l)}
+
 /* 1. HERO */
 .hero{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden}
-.hero>img{position:absolute;top:0;right:0;bottom:0;width:100%;height:100%;object-fit:cover;opacity:.35;border:0;-webkit-mask-image:linear-gradient(to left,#000 30%,transparent);mask-image:linear-gradient(to left,#000 30%,transparent)}
+.hero>.ph{position:absolute;top:0;right:0;bottom:0;width:100%;height:100%;opacity:.35;border:0;-webkit-mask-image:linear-gradient(to left,#000 30%,transparent);mask-image:linear-gradient(to left,#000 30%,transparent)}
 .hero .w{position:relative;z-index:1;width:100%}
 .hero h1{font-size:clamp(44px,13vw,92px);text-transform:uppercase;color:var(--ac)}
 .hero h1 small{display:block;font-size:clamp(20px,5vw,30px);text-transform:none;color:var(--tx);margin-top:18px;line-height:1.3;max-width:600px}
@@ -40,7 +42,7 @@ h2{font-size:clamp(26px,6vw,40px);margin-bottom:32px}
 /* 2. TRIẾT LÝ */
 .about{text-align:center}
 .box{max-width:760px;margin:0 auto;border:1px solid var(--ac);padding:44px 24px}
-.box img{width:80px;height:80px;margin:0 auto 24px;border-radius:50%}
+.box .ph{width:100px;height:100px;margin:0 auto 24px;border-radius:50%}
 .box p{font-size:clamp(17px,4vw,22px);color:#dcdcdc}
 .box b{color:var(--ac)}
 
@@ -59,7 +61,7 @@ h2{font-size:clamp(26px,6vw,40px);margin-bottom:32px}
 .sl{overflow:hidden;max-width:620px;margin:0 auto}
 .tr{display:flex;transition:transform .6s ease}
 .sd{flex:0 0 100%;padding:0 6px;display:flex;justify-content:center}
-.shot{aspect-ratio:9/16;width:min(100%,270px);max-height:480px;border-radius:22px;object-fit:cover;border:1px solid var(--ln)}
+.shot{aspect-ratio:9/16;width:min(100%,270px);max-height:480px;border-radius:22px;}
 .dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
 .dots button{width:9px;height:9px;border-radius:5px;border:0;background:#444;padding:0;cursor:pointer;transition:.3s}
 .dots .on{background:var(--ac);width:24px}
@@ -71,10 +73,9 @@ h2{font-size:clamp(26px,6vw,40px);margin-bottom:32px}
 .posts{display:grid;gap:22px}
 .post{background:var(--bg2);border:1px solid #232323;overflow:hidden}
 .thumb{overflow:hidden;aspect-ratio:16/9}
-.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.post:hover .thumb img{transform:scale(1.07)}
+.thumb .ph{width:100%;height:100%;transition:transform .5s;border:none}
+.post:hover .thumb .ph{transform:scale(1.07)}
 .post .in{padding:20px}
-.post time{color:var(--mu);font-size:12px}
 .post h3{font-size:20px;margin:6px 0 16px}
 .more{color:var(--ac);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ac);padding-bottom:2px}
 
@@ -94,12 +95,10 @@ footer{background:#050505;border-top:1px solid var(--ln);padding:64px 20px 40px;
 .nl input{padding:15px 16px;background:#111;border:1px solid #333;color:var(--tx);font:inherit;border-radius:0}
 .nl input:focus{outline:1px solid var(--ac)}
 .fine{margin-top:44px;font-size:12px;color:#6b6b6b}
-.fine a{margin:0 8px;text-decoration:underline}
 
 @media(min-width:800px){
 section{padding:110px 32px}
-/* Fix 5: Chống lỗi giao diện ảnh bìa bị vỡ trên màn hình rộng */
-.hero>img{width:55%;min-width:600px;opacity:1}
+.hero>.ph{width:55%;min-width:600px;opacity:1}
 .cta{flex-direction:row;max-width:none}
 .grid{grid-template-columns:1fr 1fr}.hot{transform:scale(1.03)}
 .posts{grid-template-columns:repeat(3,1fr)}
@@ -122,8 +121,6 @@ section{padding:110px 32px}
 .card details{margin:-12px 0 24px;font-size:14px;color:#cfcfcf}
 .card summary{cursor:pointer;color:var(--ac);font-weight:700;padding:8px 0}
 .card details p{margin:6px 0}
-.note{margin-top:28px;color:var(--mu);font-size:13px;text-align:center}
-.note a,.fine a{text-decoration:underline}
 .tip{color:var(--mu);font-size:13px;margin:-8px 0 22px}
 .tag{background:var(--ac);color:#0A0A0A;font-size:10px;font-weight:800;letter-spacing:.1em;padding:2px 7px;margin-right:8px;vertical-align:middle}
 .list{grid-column:1/-1}
@@ -135,8 +132,7 @@ section{padding:110px 32px}
 <body>
 
 <header class="hero" style="padding:64px 20px">
-  <!-- Fix 2: Tự động gắn ảnh minh họa nam tính (thay vì khung xám lỗi) -->
-  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1920&auto=format&fit=crop" alt="Huy Trần">
+  <div class="ph" data-l="Ảnh chân dung (1920x1080)"></div>
   <div class="w">
     <p class="kick">Huy Trần · OnlyTheBest — Chỉ lựa chọn cái tốt nhất</p>
     <h1>Only The Best<small>Xây dựng Tư duy, Tài chính và Bản lĩnh phái mạnh.</small></h1>
@@ -150,8 +146,7 @@ section{padding:110px 32px}
 
 <section class="about">
   <div class="box">
-    <!-- Gắn logo/icon mẫu -->
-    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=150&auto=format&fit=crop" alt="Icon">
+    <div class="ph" data-l="Logo"></div>
     <p class="kick">Triết lý cốt lõi</p>
     <p><b>OnlyTheBest</b> nghĩa là chỉ lựa chọn cái tốt nhất. Trong bất kì hoàn cảnh nào, tui sẽ tìm ra lựa chọn tốt nhất, quyết định tốt nhất. Và cho dù cái "tốt nhất" đã được chọn, nó sẽ liên tục được review và sẽ bị thay thế nếu phát hiện ra có cái tốt hơn.</p>
     <p style="margin-top:18px;font-size:16px">Tốt nhất có nghĩa là:</p>
@@ -210,10 +205,9 @@ section{padding:110px 32px}
     <p class="kick">Bằng chứng</p>
     <h2>Feedback từ các bạn</h2>
     <div class="sl"><div class="tr">
-      <!-- Gắn ảnh Feedback mẫu -->
-      <div class="sd"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=400&auto=format&fit=crop" class="shot" alt="Feedback"></div>
-      <div class="sd"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400&auto=format&fit=crop" class="shot" alt="Feedback"></div>
-      <div class="sd"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop" class="shot" alt="Feedback"></div>
+      <div class="sd"><div class="ph shot" data-l="Ảnh Feedback 1"></div></div>
+      <div class="sd"><div class="ph shot" data-l="Ảnh Feedback 2"></div></div>
+      <div class="sd"><div class="ph shot" data-l="Ảnh Feedback 3"></div></div>
     </div></div>
     <div class="dots"></div>
   </div>
@@ -256,7 +250,6 @@ sl.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x0;if(Mat
 sl.onmouseenter=()=>clearInterval(t);sl.onmouseleave=play;
 go(0);play();
 
-/* Fix 3: Sửa link blog trỏ thẳng về TikTok, tránh lỗi 404 cho file Demo */
 const P={
  mindset:['+Uy tín là sức mạnh phần 1','Làm sao để người giỏi dạy mình','Cái tôi lớn làm trì trệ con người bạn!','1 chút về tư duy xác suất','Ăn nói'],
  finance:['Có nên cho bạn bè người thân vay tiền?','Cắt lỗ','Tài sản vs tiêu sản','Lãi kép','Đốt tiền'],
@@ -267,13 +260,12 @@ const url= 'https://www.tiktok.com/@huytran.onlythebest';
 function show(k){
  const a=P[k].map(s=>{const w=s[0]=='+',t=w?s.slice(1):s;return{t:t,w:w,u:url}});
  const g=w=>w?'<span class="tag">MỚI</span>':'';
- box.innerHTML=a.slice(0,3).map(p=>'<article class="post"><div class="thumb"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="Blog"></div><div class="in"><h3>'+g(p.w)+p.t+'</h3><a class="more" href="'+p.u+'" target="_blank">Đọc tiếp →</a></div></article>').join('')
+ box.innerHTML=a.slice(0,3).map(p=>'<article class="post"><div class="thumb"><div class="ph" data-l="Ảnh Blog"></div></div><div class="in"><h3>'+g(p.w)+p.t+'</h3><a class="more" href="'+p.u+'" target="_blank">Đọc tiếp →</a></div></article>').join('')
   +'<div class="list">'+a.slice(3).map(p=>'<a href="'+p.u+'" target="_blank"><span>'+g(p.w)+p.t+'</span><span>→</span></a>').join('')+'</div>';
 }
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelector('.tabs .on').classList.remove('on');b.classList.add('on');show(b.dataset.k)});
 show('mindset');
 
-/* Fix 4: Xử lý Form Email mượt mà */
 document.querySelector('.nl form').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<p style="color:var(--ac); font-weight:bold;">Đã gửi thành công! Cảm ơn bạn.</p>'};
 </script>
 </body>
